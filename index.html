@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        .container {
+            float: left;
+            margin: 5rem;
+        }
+        .label {
+            clear: both;
+        }
+        button {
+            position: fixed;
+            top: 10;
+            left: 10;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <button>🥚</button>
+    <script src='./all-pokemon.js'></script>
+    <script>
+
+
+        var hatchAPokemon = function() {
+            var pokemonNumber1 = Math.ceil(Math.random()*890); // Get a random number
+            
+            var myImage1 = document.createElement('img'); // Make an image container
+            
+            var myLabel1 = document.createElement('div'); // Make a label container
+            myLabel1.classList.add('label');
+            myLabel1.innerText = allPokemon[pokemonNumber1 - 1].name; // Type the number into the label
+            
+            var myContainer1 = document.createElement('div'); // Make a container
+            myContainer1.classList.add('container');
+            myContainer1.appendChild(myImage1);
+            myContainer1.appendChild(myLabel1);
+            document.body.appendChild(myContainer1); // Put our container (and everything inside of it) into the page
+            
+            myImage1.setAttribute('src', './' + pokemonNumber1 + '.gif'); // Load our image
+        };
+
+        hatchAPokemon();
+        hatchAPokemon();
+
+        document.querySelector('button').addEventListener('click', function() {
+            window.location.reload(false);
+        });
+
+        // var pokemonNumber2 = Math.ceil(Math.random()*889);
+        // var myImage2 = document.createElement('img'); 
+        // document.body.appendChild(myImage2);
+        // myImage2.setAttribute('src', 'https://randompokemon.com/sprites/normal/' + pokemonNumber2 + '.gif');
+    </script>
+
+</body>
+</html>
